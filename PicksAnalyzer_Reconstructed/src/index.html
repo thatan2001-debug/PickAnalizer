@@ -2,30 +2,58 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-
-    <link rel="icon" href="/favicon.ico" />
-
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-
-    <meta
-      name="description"
-      content="PickAnalyzer Pro - Análisis deportivo inteligente y apuestas deportivas."
-    />
-
-    <link rel="manifest" href="/manifest.json" />
-
-    <title>PickAnalyzer Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Analista deportivo IA para predicción y gestión de apuestas." />
+    <title>PickAnalyzer IA</title>
+    <link rel="stylesheet" href="./index.css" />
   </head>
-
   <body>
-    <div id="root"></div>
+    <main class="app">
+      <h1>⚽ PickAnalyzer IA</h1>
+      <p class="subtitle">Analista deportivo inteligente con recomendación de riesgo.</p>
 
-    <script
-      type="module"
-      src="/src/main.jsx"
-    ></script>
+      <section class="card">
+        <h2>Datos del partido</h2>
+        <form id="match-form">
+          <div class="grid">
+            <label>Equipo local
+              <input name="homeTeam" required placeholder="Ej: Real Madrid" />
+            </label>
+            <label>Equipo visitante
+              <input name="awayTeam" required placeholder="Ej: Barcelona" />
+            </label>
+            <label>Forma local (0-100)
+              <input name="homeForm" type="number" min="0" max="100" value="70" required />
+            </label>
+            <label>Forma visitante (0-100)
+              <input name="awayForm" type="number" min="0" max="100" value="65" required />
+            </label>
+            <label>Bajas local (0-5)
+              <input name="homeInjuries" type="number" min="0" max="5" value="1" required />
+            </label>
+            <label>Bajas visitante (0-5)
+              <input name="awayInjuries" type="number" min="0" max="5" value="2" required />
+            </label>
+            <label>Cuota local
+              <input name="oddsHome" type="number" min="1.01" step="0.01" value="1.95" required />
+            </label>
+            <label>Cuota empate
+              <input name="oddsDraw" type="number" min="1.01" step="0.01" value="3.40" required />
+            </label>
+            <label>Cuota visitante
+              <input name="oddsAway" type="number" min="1.01" step="0.01" value="3.80" required />
+            </label>
+          </div>
+          <button type="submit">Analizar partido</button>
+        </form>
+      </section>
+
+      <section class="card" id="result-card" hidden>
+        <h2>Resultado del análisis IA</h2>
+        <div id="analysis-output"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
