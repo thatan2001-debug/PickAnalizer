@@ -1,31 +1,65 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PickAnalyzer IA Pro</title>
+  <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>PickAnalyzer IA Pro</h1>
+      <div class="api-box">
+        <label>API Key BeSoccer
+          <input id="api-key" value="81c2e96998747b0576dff882d718c4a6" />
+        </label>
+        <button id="save-key">Guardar</button>
+      </div>
+    </header>
 
-    <link rel="icon" href="/favicon.ico" />
+    <nav class="tabs">
+      <button class="tab active" data-tab="live">En vivo</button>
+      <button class="tab" data-tab="scheduled">Programados</button>
+      <button class="tab" data-tab="finished">Terminados</button>
+      <button class="tab" data-tab="tips">Consejos IA</button>
+    </nav>
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <section id="live" class="tab-content active"></section>
 
-    <meta
-      name="description"
-      content="PickAnalyzer Pro - Análisis deportivo inteligente y apuestas deportivas."
-    />
+    <section id="scheduled" class="tab-content">
+      <div class="calendar" id="date-chips"></div>
+      <div id="scheduled-list"></div>
+    </section>
 
-    <link rel="manifest" href="/manifest.json" />
+    <section id="finished" class="tab-content"></section>
 
-    <title>PickAnalyzer Pro</title>
-  </head>
+    <section id="tips" class="tab-content">
+      <div class="card">
+        <h3>Apuesta destacada del día</h3>
+        <div id="best-tip"></div>
+      </div>
+      <div class="card">
+        <h3>Personalizar combinada</h3>
+        <label>Cuota mínima <input id="min-odds" type="number" step="0.01" value="1.55" /></label>
+        <label>Partidos a incluir <input id="legs" type="number" min="1" max="8" value="2" /></label>
+        <label>Riesgo
+          <select id="risk">
+            <option>Bajo</option><option>Medio</option><option>Alto</option>
+          </select>
+        </label>
+        <div id="league-filters"></div>
+        <button id="generate-combo">Generar opciones IA</button>
+        <div id="combo-results"></div>
+      </div>
+    </section>
 
-  <body>
-    <div id="root"></div>
+    <section class="card" id="analysis-panel" hidden>
+      <h3>Análisis del partido</h3>
+      <div id="analysis-output"></div>
+    </section>
+  </main>
 
-    <script
-      type="module"
-      src="/src/main.jsx"
-    ></script>
-  </body>
+  <script type="module" src="./main.js"></script>
+</body>
 </html>
