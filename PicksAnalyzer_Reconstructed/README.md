@@ -2,12 +2,28 @@
 
 Proyecto reconstruido automáticamente desde un archivo TXT.
 
-## Reestructuración aplicada
+## Cómo ejecutar (dos opciones)
 
-- Se aisló la lógica de creación de URLs en `src/utils/routes.ts`.
-- `src/index.ts` ahora actúa como punto de exportación limpio.
+### Opción A: desde la raíz del repo
+```bash
+npm install
+npm run dev
+```
 
-## Estructura
+### Opción B: desde `PicksAnalyzer_Reconstructed`
+```bash
+cd PicksAnalyzer_Reconstructed
+npm install
+npm run dev
+```
 
-- `src/index.ts`: exportaciones principales del módulo.
-- `src/utils/routes.ts`: utilidades de rutas y generación de slugs.
+## Si aparece `ENOENT ... package.json`
+Ese error significa que estás en un directorio que no contiene `package.json`.
+Verifica con:
+
+```bash
+pwd
+ls
+```
+
+Debes estar en la raíz del repo (`PickAnalizer`) o en `PickAnalizer/PicksAnalyzer_Reconstructed`.
