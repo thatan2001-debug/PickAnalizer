@@ -2,9 +2,26 @@
 
 Analista deportivo IA orientado a evaluar partidos y sugerir picks con una métrica de riesgo.
 
-## Activación rápida (npm)
+## Si te sale `ENOENT ... package.json`
+No lo estás haciendo mal: ese error aparece cuando estás en una carpeta sin `package.json`.
+
+Ejecuta diagnóstico rápido:
 
 ```bash
+./doctor.sh
+```
+
+## Activación rápida (npm)
+
+### Opción A (raíz del repo)
+```bash
+npm install
+npm run dev
+```
+
+### Opción B (subcarpeta reconstruida)
+```bash
+cd PicksAnalyzer_Reconstructed
 npm install
 npm run dev
 ```
@@ -19,11 +36,5 @@ Luego abre `http://localhost:4173`.
 ## Proyecto funcional
 
 La app funcional está en `PicksAnalyzer_Reconstructed/src`.
-
-### Qué hace
-- Recibe datos de forma, bajas y cuotas.
-- Estima probabilidades con un modelo heurístico.
-- Calcula cuotas justas y edge de valor.
-- Recomienda pick (Local / Empate / Visitante) con riesgo Bajo/Medio/Alto.
 
 > Nota: Es una herramienta educativa; no constituye asesoría financiera.
